@@ -9,8 +9,8 @@ services:
       - POSTGRES_DB=dzskills
       - POSTGRES_USER=spounka
       - POSTGRES_PASSWORD=pass123
-    # ports:
-    #   - "5432:5432"
+    ports:
+      - "5432:5432"
 
   web:
     build: ./backend
