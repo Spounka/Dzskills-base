@@ -13,9 +13,11 @@ services:
       - "5432:5432"
 
   web:
-    build: ./backend
-    command: gunicorn backend.wsgi --bind 0.0.0.0:8000 --workers 3
-      # command: python3 manage.py runserver 0.0.0.0:8000
+    user: dzskills
+    build:
+      context: ./backend
+    #command: gunicorn backend.wsgi --bind 0.0.0.0:8000 --workers 3
+    # command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
       - ./backend/:/code/
       - staticfiles:/code/staticfiles/
@@ -28,10 +30,13 @@ services:
       - POSTGRES_PASSWORD=pass123
       - POSTGRES_HOST=db
       - DEBUG="true"
+      - DATABASE_URL=postgresql://spounka:pass123@db:5432/dzskills
     depends_on:
       - db
   frontend:
     build: ./frontend
+    env_file:
+      - ./frontend/.env/
     volumes:
       - front:/code/dist/
 
