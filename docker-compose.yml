@@ -19,9 +19,8 @@ services:
     #command: gunicorn backend.wsgi --bind 0.0.0.0:8000 --workers 3
     # command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./backend/:/code/
-      - staticfiles:/code/staticfiles/
-      - ./backend/media/:/code/media/
+      - staticfiles:/home/dzskills/code/staticfiles/
+      - ./backend/media/:/home/dzskills/code/media/
     ports:
       - "8000:8000"
     environment:
