@@ -1,6 +1,6 @@
 [submodule "backend"]
 	path = backend
-	url = git@github.com:Spounka/dzskills.git
+	url = git@github.com:Spounka/dzskills
 	branch = main
 [submodule "frontend"]
 	path = frontend
